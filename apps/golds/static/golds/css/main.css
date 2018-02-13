@@ -1,0 +1,47 @@
+
+.frame {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+  display: inline-block
+}
+
+.wrapper {
+    text-align: center;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    grid-gap: 10px;
+    background-color: #fff;
+    color: #444;
+    margin: 0 auto;
+    text-align: center;
+    padding-left: 20px;
+    margin-top: 30px;
+  }
+
+.score {
+  margin: 0 auto;
+  font-size: 150%;
+  padding-left: 20px;
+}
+.score > span{
+  border: 1px solid black;
+  padding: 2px 30px;
+  border-radius: 5px;
+  background-color: gray;
+}
+
+.container {
+  width: 1500px;
+  margin: 0 auto;
+}
+.activities {
+  border: 1px solid black;
+  margin-top: 60px;
+  padding: 20px;
+  border-radius: 5px;
+}
+

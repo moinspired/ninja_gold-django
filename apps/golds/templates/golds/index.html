@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ninja Gold</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'golds/css/main.css' %}" media="screen" title="no title"  charset="utf-8">
+  </head>
+  <body>
+    <div class="container">
+      <div class="score">
+        You have: <span>{{request.session.gold}}</span>
+      </div>
+      <div class="wrapper">
+      <div class="frame">
+        <h1>Farm</h1>
+        <p>(earn 10-20 golds)</p>
+        <form action='/totalGolds' method='post'>
+          {% csrf_token %}
+          <input type='hidden' name='form_id' value='1015' />
+          <input type='submit' value='Find Gold'/>
+        </form>
+      </div>
+
+      <div class="frame">
+          <h1>Cave</h1>
+          <p>(earn 5-10 golds)</p>
+          <form action='/totalGolds' method='post'>
+            {% csrf_token %}
+            <input type='hidden' name='form_id' value='1016' />
+            <input type='submit' value='Find Gold'/>
+          </form>
+        </div>
+
+        <div class="frame"> 
+            <h1>House</h1>
+            <p>(earn 2-5 golds)</p>
+            <form action='/totalGolds' method='post'>
+              {% csrf_token %}
+              <input type='hidden' name='form_id' value='1017' />
+              <input type='submit' value='Find Gold'/>
+            </form>
+          </div>
+          <div class="frame">
+              <h1>Casino</h1>
+              <p>(earn 0-50 golds)</p>
+              <form action='/totalGolds' method='post'>
+                {% csrf_token %}
+                <input type='hidden' name='form_id' value='1018' />
+                <input type='submit' value='Find Gold'/>
+              </form>
+          </div>
+        </div>
+        <div class="activities">
+          {% if request.session.gold == 0 %} 
+
+          {%else%}
+            {% for item in request.session.earned%}
+            <p style="color:green" class="earned">{{ item }}</p>
+            {% endfor %}
+
+            {% for item in request.session.lost%}
+            <p style="color:red" class="lost">{{ item }}</p>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+  </body>
+</html>
